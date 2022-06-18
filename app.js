@@ -1,3 +1,4 @@
+require("dotenv").config();
 require("./config/database").connect();
 const express = require("express");
 const bcrypt = require("bcryptjs");
@@ -7,8 +8,6 @@ const User = require("./model/user");
 const auth = require("./middleware/auth");
 
 const app = express();
-
-const TOKEN_KEY="MY_SECRET_KEY";
 
 app.use(express.json({ limit: "50mb" }));
 
@@ -44,7 +43,7 @@ app.post("/register", async (req, res) => {
     // Create token
     const token = jwt.sign(
       { user_id: user._id, email },
-      TOKEN_KEY,
+      process.env.TOKEN_KEY,
       {
         expiresIn: "2h",
       }
@@ -75,7 +74,7 @@ app.post("/login", async (req, res) => {
       // Create token
       const token = jwt.sign(
         { user_id: user._id, email },
-        TOKEN_KEY,
+        process.env.TOKEN_KEY,
         {
           expiresIn: "2h",
         }
