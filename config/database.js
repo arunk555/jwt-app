@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const { MONGO_URI } = process.env;
+const MONGO_URI = 'mongodb+srv://lifestyle:mjTZcpVZRzVVe0rj@cluster0.owoytrq.mongodb.net/?retryWrites=true&w=majority';
 
 exports.connect = () => {
   // Connecting to the database
   mongoose
-    .connect('mongodb+srv://lifestyle:mjTZcpVZRzVVe0rj@cluster0.owoytrq.mongodb.net/?retryWrites=true&w=majority', {
+    .connect(MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
