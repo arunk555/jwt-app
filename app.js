@@ -51,6 +51,8 @@ app.post("/register", async (req, res) => {
     // save user token
     user.token = token;
 
+    if(user.token) user.save();
+
     // return new user
     res.status(201).json(user);
   } catch (err) {
@@ -82,7 +84,7 @@ app.post("/login", async (req, res) => {
 
       // save user token
       user.token = token;
-
+      if(user.token) user.save();
       // user
       res.status(200).json(user);
     }
