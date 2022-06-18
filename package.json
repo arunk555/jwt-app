@@ -1,16 +1,14 @@
 {
-  "name": "jwt-project",
+  "name": "jwt-app",
   "version": "1.0.0",
   "description": "A demo about authentication using jwt",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Olanetsoft/jwt-project.git"
+    "url": "git+https://github.com/arunk555/jwt-app.git"
   },
   "keywords": [
     "jwt",
@@ -20,9 +18,9 @@
   "author": "Idris Olubisi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Olanetsoft/jwt-project/issues"
+    "url": "https://github.com/arunk555/jwt-app/issues"
   },
-  "homepage": "https://github.com/Olanetsoft/jwt-project#readme",
+  "homepage": "https://github.com/arunk555/jwt-app#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
