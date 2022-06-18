@@ -4,7 +4,7 @@
   "description": "A demo about authentication using jwt",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
