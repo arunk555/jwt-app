@@ -95,7 +95,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/welcome", auth, (req, res) => {
-  res.status(200).send("Welcome 🙌 "+JSON.stringify(res.user));
+  res.status(200).send("Welcome 🙌 ");
 });
 
 // This should be the last route else any after it won't work
