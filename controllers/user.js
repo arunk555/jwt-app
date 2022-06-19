@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../model/user");
 
 
-const registerctrl=async ((req, res) => {
+const registerctrl=async (req, res) => {
   try {
     // Get user input
     const { first_name, last_name, email, password } = req.body;
@@ -47,10 +47,10 @@ const registerctrl=async ((req, res) => {
   } catch (err) {
     console.log(err);
   }
-});
+};
 
 
-const loginctrl=(async (req, res) => {
+const loginctrl=async (req, res) => {
   try {
     // Get user input
     const { email, password } = req.body;
@@ -82,11 +82,11 @@ const loginctrl=(async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-});
+};
 
-const welcomectrl=((req, res) => {
+const welcomectrl=(req, res) => {
   res.status(200).json(req.user);
-});
+};
 
 
 module.exports={registerctrl, loginctrl, welcomectrl};
