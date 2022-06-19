@@ -1,9 +1,8 @@
 require("dotenv").config();
 require("./config/database").connect();
 const express = require("express");
-const user_routes = require("./routes/user");
 const app = express();
-
+const user_routes = require("./routes/user");
 app.use(express.json({ limit: "50mb" }));
 
 app.use("/", user_routes);
