@@ -1,25 +1,27 @@
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+    // intercept OPTIONS method
+    if ('OPTIONS' == req.method) {
+      res.send(200);
+    }
+    else {
+      next();
+    }
+};
+
+const express = require("express");
+const app = express();
+app.use(allowCrossDomain);
 require("dotenv").config();
 require("./config/database").connect();
-const express = require("express");
+
 const user_routes = require("./routes/user");
-const app = express();
+
 app.use(express.json({ limit: "50mb" }));
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*")
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested, Content-Type, Accept Authorization"
-    )
-    if (req.method === "OPTIONS") {
-      res.header(
-        "Access-Control-Allow-Methods",
-        "POST, PUT, PATCH, GET, DELETE"
-      )
-      return res.status(200).json({})
-    }
-    next()
-  });
 
 app.use("/", user_routes);
 
